@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score page</title>
+    <style>
+        {% include "styles.css" %}
+        .a_header{ padding: 3vh; color: white;}
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <nav> 
+            Hi, {{ user.first_name }}
+            <a href="Sign_out" class="a_header"> Sign out</a> 
+        </nav>
+    </div>
+    <!-- mainCard -->
+    <div class="mainCard">
+        Name: {{user.first_name}} {{user.last_name}} <br>
+        No of correct: {{noOfCorrect}} <br>
+        Percentage: {{percent}}
+    </div>
+    <!-- footer -->
+    {% include "footer.html" %}
+</body>
+</html>

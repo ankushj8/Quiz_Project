@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz page</title>
+    <style>
+        {% include "styles.css" %}
+        .mainCard{
+            padding: 7vh;
+            font-size: large;
+        }
+        .a_header{ padding: 3vh; color: white;}
+    </style>
+    <script>
+        function prePopulation(){
+            document.getElementById("{{prePopulate}}").checked = true
+        }
+    </script>
+</head>
+<body onload="prePopulation()">
+    <!-- window.onload =  -->
+    <!-- Header -->
+    <div class="header">
+        <nav>
+            Hi, {{ user.first_name }}
+            {{request.session.ansDict}}
+            <a href="Sign_out" class="a_header"> Sign Out </a>
+        </nav>
+    </div>
+    <!-- The main Quiz card -->
+    <div class="mainCard">
+        {% include "messages.html" %}
+        <form action="Quiz" name="" method="post">
+            {% csrf_token %}
+            <div> Question {{quesFields.questionNo}} </div>
+            <div>
+                <div> {{quesFields.question}} </div>
+                <input type="radio" name="options" id="1" value="1">
+                <label for="" name="options" id="labelOptionA"> {{quesFields.optionA}} </label> <br>
+                <input type="radio" name="options" id="2" value="2">
+                <label for="" name="options" id="labelOptionB"> {{quesFields.optionB}} </label> <br>
+                <input type="radio" name="options" id="3" value="3">
+                <label for="" name="options" id="labelOptionC"> {{quesFields.optionC}} </label> <br>
+                <input type="radio" name="options" id="4" value="4">
+                <label for="" name="options" id="labelOptionD"> {{quesFields.optionD}} </label> <br> <br>
+                <button type="submit" onclick="" name="submit" value="prev">Previous </button>
+                <button type="submit" onclick="" name="submit" value="next">Next </button>
+            </div>
+        </form>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

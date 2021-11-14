@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in page</title>
+    <style>
+        {% include "styles.css" %}
+        .mainCard{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="mainCard">
+        <nav>
+            <button>  <a href="Register"> Register </a> </button>
+            <button>  <a href="#"> Sign in </a> </button>
+        </nav> <br>
+        {% include "messages.html" %}
+        <form action="Sign_in" method="post">
+            {% csrf_token%}
+            <label for=""> Username:</label>
+            <input type="text" name="userName" placeholder="Username" required>
+            <label for=""> Password:</label>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>
